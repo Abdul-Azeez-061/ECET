@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECET Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="max-width:860px; margin:0 auto; padding:2rem 1rem 4rem;">
+
+        <div class="page-container">
+            <div class="page-header">
+                <h1>Leaderboard</h1>
+                <p>Click any row to view a full performance analysis.</p>
+            </div>
+
+            <div class="page-body">
+
+                <!-- Filter chips -->
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:1.25rem;">
+                    <button class="tab-btn active" data-filter="all">All Subjects</button>
+                    <button class="tab-btn" data-filter="ds">Data Structures</button>
+                    <button class="tab-btn" data-filter="cn">Computer Networks</button>
+                    <button class="tab-btn" data-filter="os">Operating Systems</button>
+                </div>
+
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Subject</th>
+                            <th>Score</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body"></tbody>
+                </table>
+
+                <!-- Analysis Section -->
+                <div id="analysis-section" class="analysis-wrapper">
+                    <h2 id="analysis-title">Performance Analysis</h2>
+
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="correct">✓ Correct</button>
+                        <button class="tab-btn" data-tab="wrong">✗ Wrong</button>
+                        <button class="tab-btn" data-tab="not-answered">— Skipped</button>
+                    </div>
+
+                    <div id="analysis-content"></div>
+                </div>
+
+                <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
+                    <a href="index.html" class="btn primary-btn" style="flex:1; min-width:180px;">← Take Another Test</a>
+                    <button id="clear-btn" class="btn secondary-btn" style="flex:1; min-width:160px;">Clear All Data</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="leaderboard.js"></script>
+</body>
+</html>
