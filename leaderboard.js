@@ -13,7 +13,7 @@ let activeFilter   = 'all';
 
 // ── Subject label helper ──────────────────────────────────
 function subjectLabel(key) {
-    const map = { ds: 'Data Structures', cn: 'Computer Networks', os: 'Operating Systems', se: 'Software Engineering' };
+    const map = { ds: 'Data Structures', cn: 'Computer Networks', os: 'Operating Systems', se: 'Software Engineering', java: 'Java Programming', wt: 'Web Technology', de: 'Digtal Electronics' };
     return map[key] || key || '—';
 }
 
