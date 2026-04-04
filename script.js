@@ -533,6 +533,299 @@ const QUESTIONS_DE = [
   {question:"A ROM is different from RAM because ROM:",options:["Is faster","Cannot be written during normal operation","Uses flip-flops","Requires a clock"],answer:"Cannot be written during normal operation"}
 ];
 
+const QUESTIONS_DBMS = [
+  {question:"Which statement exits a loop in PL/SQL?",options:["BREAK","CONTINUE","STOP","EXIT"],answer:"EXIT"},
+  {question:"What does ACID stand for in database transactions?",options:["Atomicity, Consistency, Isolation, Durability","Accuracy, Consistency, Integrity, Durability","Atomicity, Concurrency, Integrity, Durability","Accuracy, Concurrency, Isolation, Dependency"],answer:"Atomicity, Consistency, Isolation, Durability"},
+  {question:"What is an Index in SQL used for?",options:["Storing duplicate data","Allowing faster retrieval of records","Creating virtual tables","Generating unique numbers"],answer:"Allowing faster retrieval of records"},
+  {question:"Which keyword removes duplicate rows from a SQL result set?",options:["UNIQUE","DIFFERENT","SEPARATE","DISTINCT"],answer:"DISTINCT"},
+  {question:"Which SQL command gives a user access privileges to the database?",options:["ALLOW","PERMIT","GRANT","ASSIGN"],answer:"GRANT"},
+  {question:"What uniquely identifies each row in a table?",options:["Foreign Key","Composite Key","Candidate Key","Primary Key"],answer:"Primary Key"},
+  {question:"Which of the following is NOT an aggregate function in SQL?",options:["AVG","COUNT","SUM","LENGTH"],answer:"LENGTH"},
+  {question:"Which DBMS component manages the space on disk where data is stored?",options:["Query Processor","Database Engine","Transaction Manager","Storage Manager"],answer:"Storage Manager"},
+  {question:"What does the FORALL statement do in PL/SQL?",options:["Iterates over a collection without DML","Fetches multiple rows into a collection","Executes a DML statement multiple times using collections","Executes SQL dynamically"],answer:"Executes a DML statement multiple times using collections"},
+  {question:"Which SQL command removes rows from a table?",options:["DROP","TRUNCATE","REMOVE","DELETE"],answer:"DELETE"},
+  {question:"Which MongoDB aggregation stage groups input documents by a specified expression?",options:["$match","$sort","$project","$group"],answer:"$group"},
+  {question:"What is a Sequence in SQL?",options:["A type of join","A virtual table","A database object that generates unique numbers","An alias for a database object"],answer:"A database object that generates unique numbers"},
+  {question:"Which SQL clause is used to filter the results of a query?",options:["SELECT","FROM","GROUP BY","WHERE"],answer:"WHERE"},
+  {question:"What does BSON stand for in MongoDB?",options:["Basic JSON","Binary JSON","Basic Object Notation","Binary Object Storage"],answer:"Binary JSON"},
+  {question:"Which normal form eliminates partial dependencies?",options:["1NF","2NF","3NF","BCNF"],answer:"2NF"},
+  {question:"Which of the following is a collection type in PL/SQL?",options:["RECORD","ARRAY","LIST","TABLE"],answer:"TABLE"},
+  {question:"Which of the following is NOT a PL/SQL data type?",options:["VARCHAR2","NUMBER","BOOLEAN","STRING"],answer:"STRING"},
+  {question:"Which SQL function returns the current system date and time?",options:["CURRENT_DATE()","GETDATE()","SYSDATE()","NOW()"],answer:"NOW()"},
+  {question:"What type of cursor is automatically created by Oracle when a SELECT returns a single row?",options:["Explicit Cursor","Named Cursor","Implicit Cursor","Declared Cursor"],answer:"Implicit Cursor"},
+  {question:"Which SQL command removes access privileges?",options:["DENY","RESTRICT","REMOVE","REVOKE"],answer:"REVOKE"},
+  {question:"Which of the following is a key feature of a DBMS?",options:["Data Redundancy","Data Duplication","Data Abstraction","Data Inconsistency"],answer:"Data Abstraction"},
+  {question:"Which command creates an index in MongoDB?",options:["CREATE INDEX","ADD INDEX","MAKE INDEX","createIndex"],answer:"createIndex"},
+  {question:"Which keyword is used to handle exceptions in PL/SQL?",options:["CATCH","TRY","ERROR","EXCEPTION"],answer:"EXCEPTION"},
+  {question:"Which SQL aggregate function returns the maximum value in a column?",options:["COUNT","AVG","SUM","MAX"],answer:"MAX"},
+  {question:"Which ACID property ensures that once a transaction is committed, it remains so?",options:["Atomicity","Isolation","Durability","Consistency"],answer:"Durability"},
+  {question:"Which of the following is an example of a Graph NoSQL database?",options:["MongoDB","Redis","HBase","Neo4j"],answer:"Neo4j"},
+  {question:"Which ACID property ensures each transaction brings the database from one valid state to another?",options:["Atomicity","Consistency","Isolation","Durability"],answer:"Consistency"},
+  {question:"What is an Entity in the ER model?",options:["A relationship between tables","An attribute of a table","An object or thing in the real world with independent existence","A constraint on a column"],answer:"An object or thing in the real world with independent existence"},
+  {question:"What is a cursor in PL/SQL?",options:["A precompiled collection of SQL statements","A variable that holds data temporarily","A function that returns multiple values","A pointer to a result set"],answer:"A pointer to a result set"},
+  {question:"Which PL/SQL feature fetches multiple rows into a collection in a single operation?",options:["FORALL","Dynamic SQL","Bulk Collect","Explicit Cursor"],answer:"Bulk Collect"},
+  {question:"Which SQL join returns all rows from the right table and matched rows from the left table?",options:["INNER JOIN","LEFT JOIN","FULL JOIN","RIGHT JOIN"],answer:"RIGHT JOIN"},
+  {question:"What is a Package in PL/SQL?",options:["A single stored procedure","A group of related procedures, functions, variables, and other PL/SQL types","A collection of tables","A sequence of transactions"],answer:"A group of related procedures, functions, variables, and other PL/SQL types"},
+  {question:"Which SQL aggregate function returns the minimum value in a column?",options:["COUNT","AVG","SUM","MIN"],answer:"MIN"},
+  {question:"Which component of DBMS interprets and executes database queries?",options:["Storage Manager","Database Engine","Query Processor","Transaction Manager"],answer:"Query Processor"},
+  {question:"Which type of NoSQL database uses a document-oriented model?",options:["Key-Value Store","Column Store","Graph Database","Document Store"],answer:"Document Store"},
+  {question:"Which level of data abstraction deals with how data is physically stored?",options:["View Level","Logical Level","Physical Level","Schema Level"],answer:"Physical Level"},
+  {question:"Which ACID property ensures that a transaction is all or nothing?",options:["Consistency","Isolation","Durability","Atomicity"],answer:"Atomicity"},
+  {question:"Which SQL aggregate function returns the average value of a column?",options:["COUNT","SUM","MAX","AVG"],answer:"AVG"},
+  {question:"What are relationships in the ER model?",options:["Properties of entities","Associations among entities","Columns in a table","Constraints on data"],answer:"Associations among entities"},
+  {question:"Which SQL function returns the length of a text field?",options:["SIZE()","COUNT()","LEN()","MEASURE()"],answer:"LEN()"},
+  {question:"Which normal form eliminates transitive dependencies?",options:["1NF","2NF","3NF","BCNF"],answer:"3NF"},
+  {question:"What is the ability to change the physical schema without changing the logical schema called?",options:["Logical Data Independence","Physical Data Independence","Schema Independence","Data Abstraction"],answer:"Physical Data Independence"},
+  {question:"What is the ability to change the logical schema without changing the external schema called?",options:["Physical Data Independence","Schema Flexibility","Logical Data Independence","View Independence"],answer:"Logical Data Independence"},
+  {question:"Which SQL join returns all records when there is a match in either left or right table?",options:["INNER JOIN","LEFT JOIN","RIGHT JOIN","FULL OUTER JOIN"],answer:"FULL OUTER JOIN"},
+  {question:"What does a MongoDB replica set provide?",options:["Sharding","Indexing","Transactions","High Availability"],answer:"High Availability"},
+  {question:"What does RDBMS stand for?",options:["Relational Database Management System","Remote Database Management System","Redundant Database Management System","Real-time Database Management System"],answer:"Relational Database Management System"},
+  {question:"Which MongoDB method inserts a single document into a collection?",options:["insertMany","addOne","putOne","insertOne"],answer:"insertOne"},
+  {question:"What are attributes in the ER model?",options:["Associations among entities","Properties of entities","Objects in the real world","Tables in the database"],answer:"Properties of entities"},
+  {question:"Which of the following is an example of a Key-Value NoSQL database?",options:["MongoDB","Cassandra","Neo4j","Redis"],answer:"Redis"},
+  {question:"What is a Trigger in PL/SQL?",options:["A collection of SQL statements","A function that returns a single value","A stored procedure that automatically runs when an event occurs","A precompiled query"],answer:"A stored procedure that automatically runs when an event occurs"},
+  {question:"In an RDBMS, data is stored in which format?",options:["Documents","Key-Value Pairs","Rows and Columns","Graphs"],answer:"Rows and Columns"},
+  {question:"What is a View in SQL?",options:["A physical table in the database","A stored procedure","A virtual table based on the result of an SQL query","An index on a table"],answer:"A virtual table based on the result of an SQL query"},
+  {question:"What does DBMS stand for?",options:["Data Backup Management System","Database Management System","Data Base Monitoring System","Distributed Base Management System"],answer:"Database Management System"},
+  {question:"What is a Synonym in SQL?",options:["A type of index","An alias or alternate name for a database object","A sequence of numbers","A virtual table"],answer:"An alias or alternate name for a database object"},
+  {question:"Which MongoDB feature distributes data across multiple servers?",options:["Replication","Indexing","Partitioning","Sharding"],answer:"Sharding"},
+  {question:"Which SQL aggregate function counts the number of rows?",options:["SUM","AVG","MAX","COUNT"],answer:"COUNT"},
+  {question:"Which MongoDB aggregation stage filters documents?",options:["$group","$sort","$project","$match"],answer:"$match"},
+  {question:"Which of the following is an advantage of NoSQL over RDBMS for big data?",options:["Strong ACID compliance","Strict schema enforcement","Horizontal scalability","Better support for joins"],answer:"Horizontal scalability"},
+  {question:"Which SQL command is used to delete a table from the database?",options:["DELETE","REMOVE","ERASE","DROP"],answer:"DROP"},
+  {question:"Which SQL command saves a transaction to the database?",options:["SAVE","STORE","COMMIT","APPLY"],answer:"COMMIT"},
+  {question:"Which SQL join returns only rows with matching values in both tables?",options:["LEFT JOIN","RIGHT JOIN","FULL JOIN","INNER JOIN"],answer:"INNER JOIN"},
+  {question:"Which SQL function converts a field to uppercase?",options:["UPPER()","CAPS()","CAPITALIZE()","TOUPPER()"],answer:"UPPER()"},
+  {question:"Which SQL join returns all rows from the left table and matched rows from the right table?",options:["INNER JOIN","RIGHT JOIN","FULL JOIN","LEFT JOIN"],answer:"LEFT JOIN"},
+  {question:"Which SQL command is used to create a new table?",options:["ADD TABLE","BUILD TABLE","NEW TABLE","CREATE TABLE"],answer:"CREATE TABLE"},
+  {question:"Which MongoDB method deletes a single document?",options:["removeOne","eraseOne","dropOne","deleteOne"],answer:"deleteOne"},
+  {question:"Which keyword executes dynamic SQL in PL/SQL?",options:["EXECUTE","RUN","PERFORM","EXECUTE IMMEDIATE"],answer:"EXECUTE IMMEDIATE"},
+  {question:"Which SQL command modifies existing data in a table?",options:["MODIFY","ALTER","CHANGE","UPDATE"],answer:"UPDATE"},
+  {question:"Which SQL command modifies an existing database object?",options:["MODIFY","CHANGE","ALTER","UPDATE"],answer:"ALTER"},
+  {question:"Which MongoDB method updates multiple documents at once?",options:["updateOne","alterMany","modifyMany","updateMany"],answer:"updateMany"},
+  {question:"Which of the following is a feature of NoSQL databases?",options:["Fixed Schema","SQL Support","Vertical Scalability Only","Schema-less Data Model"],answer:"Schema-less Data Model"},
+  {question:"Which level of data abstraction describes how data is viewed by individual users?",options:["Physical Level","Logical Level","View Level","Internal Level"],answer:"View Level"},
+  {question:"What does PL/SQL stand for?",options:["Procedural Language/Structured Query Language","Programming Language/SQL","Parallel Language/SQL","Procedural Logic/SQL"],answer:"Procedural Language/Structured Query Language"},
+  {question:"Which language does RDBMS use for database access?",options:["Python","Java","XML","SQL"],answer:"SQL"},
+  {question:"What format does MongoDB use to store documents?",options:["XML","CSV","YAML","BSON/JSON"],answer:"BSON/JSON"},
+  {question:"What is a foreign key?",options:["A key that uniquely identifies a table","A field that links two tables together","A key used for encryption","A key that identifies multiple rows"],answer:"A field that links two tables together"},
+  {question:"Which ACID property ensures transactions are isolated from one another?",options:["Atomicity","Durability","Consistency","Isolation"],answer:"Isolation"},
+  {question:"Which SQL command adds new rows to a table?",options:["ADD","APPEND","INSERT","PUT"],answer:"INSERT"},
+  {question:"Which SQL command retrieves data from the database?",options:["FETCH","GET","RETRIEVE","SELECT"],answer:"SELECT"},
+  {question:"Which SQL command undoes transactions that have not been saved?",options:["UNDO","REVERT","RESTORE","ROLLBACK"],answer:"ROLLBACK"},
+  {question:"Which level of data abstraction describes what data is stored and the relationships among data?",options:["Physical Level","View Level","Schema Level","Logical Level"],answer:"Logical Level"},
+  {question:"What is normalization in RDBMS?",options:["Encrypting data in the database","Adding redundancy to improve speed","Organizing data to reduce redundancy and improve integrity","Backing up data regularly"],answer:"Organizing data to reduce redundancy and improve integrity"}
+];
+
+const QUESTIONS_IOT = [
+  {question:"What is a Confirmable (CON) message in CoAP?",options:["A message that needs no reply","A message that requires an ACK for reliable delivery","A message sent in broadcast","A message for multicasting data"],answer:"A message that requires an ACK for reliable delivery"},
+  {question:"How many coordinators can a ZigBee network have?",options:["Unlimited","Two","One","Five"],answer:"One"},
+  {question:"What does XMPP Presence Information indicate?",options:["Device battery level","User/device status like Online, Offline, Busy","Network signal strength","Data transfer speed"],answer:"User/device status like Online, Offline, Busy"},
+  {question:"What is the key characteristic of M2M communication?",options:["Requires human intervention","Works only over Bluetooth","Automatic data exchange between devices without human intervention","Uses only wired networks"],answer:"Automatic data exchange between devices without human intervention"},
+  {question:"Which IEEE 802.15.4 variant uses Ultra-Wideband for high-accuracy location tracking?",options:["IEEE 802.15.4e","IEEE 802.15.4g","IEEE 802.15.4f","IEEE 802.15.4a"],answer:"IEEE 802.15.4a"},
+  {question:"Which type of CoAP message is used for regular updates like temperature data?",options:["Confirmable","ACK","Broadcast","Non-Confirmable"],answer:"Non-Confirmable"},
+  {question:"What does IoT stand for?",options:["Internet of Technology","Interconnection of Things","Internet of Things","Integration of Technology"],answer:"Internet of Things"},
+  {question:"What is the correct flow of MQTT communication?",options:["Subscriber → Broker → Publisher","Broker → Publisher → Subscriber","Publisher → Subscriber → Broker","Publisher → Broker → Subscriber"],answer:"Publisher → Broker → Subscriber"},
+  {question:"Which type of CoAP message is used for sending emergency data like fire alerts?",options:["Non-Confirmable","Broadcast","Multicast","Confirmable"],answer:"Confirmable"},
+  {question:"Which component in a ZigBee network is the main controller that starts the network?",options:["End Device","Router","Access Point","Coordinator"],answer:"Coordinator"},
+  {question:"What is the maximum number of active slave devices in a Bluetooth PicoNet?",options:["5","3","10","7"],answer:"7"},
+  {question:"Which frequency band does Bluetooth operate in?",options:["5 GHz","900 MHz","433 MHz","2.4 GHz"],answer:"2.4 GHz"},
+  {question:"Which IEEE 802.15.4 variant improves MAC layer with time-slotted communication for industrial IoT?",options:["IEEE 802.15.4a","IEEE 802.15.4f","IEEE 802.15.4g","IEEE 802.15.4e"],answer:"IEEE 802.15.4e"},
+  {question:"Which type of M2M node collects data from the environment using sensors?",options:["Actuator Node","Communication Node","Processing Node","Sensing Node"],answer:"Sensing Node"},
+  {question:"Which ZigBee topology provides the highest reliability with multiple communication paths?",options:["Star Topology","Ring Topology","Tree Topology","Mesh Topology"],answer:"Mesh Topology"},
+  {question:"What is the role of sensors in IoT systems?",options:["Route network packets","Act as eyes and ears by collecting real-world data","Manage user interfaces","Store data in databases"],answer:"Act as eyes and ears by collecting real-world data"},
+  {question:"In MQTT, what is the role of the Broker?",options:["Collects sensor data","Acts as publisher","Central server that manages communication between publishers and subscribers","Stores data permanently"],answer:"Central server that manages communication between publishers and subscribers"},
+  {question:"What is a PicoNet in Bluetooth?",options:["A network of ZigBee routers","A network formed by one master and up to seven active slave devices","A cluster of Wi-Fi access points","A mesh network of NFC devices"],answer:"A network formed by one master and up to seven active slave devices"},
+  {question:"In which NFC mode does a mobile phone act like a smart card for payments?",options:["Peer-to-Peer Mode","Reader/Writer Mode","Broadcast Mode","Card Emulation Mode"],answer:"Card Emulation Mode"},
+  {question:"Which software is commonly associated with AMQP for managing message queues?",options:["Apache Kafka","Redis","RabbitMQ","ActiveMQ"],answer:"RabbitMQ"},
+  {question:"Which of the following is the first step in how IoT works?",options:["Data is processed in cloud","Action is performed automatically","Sensors collect data","Data is sent through internet"],answer:"Sensors collect data"},
+  {question:"What does AMQP stand for?",options:["Advanced Messaging Queue Protocol","Advanced Message Queuing Protocol","Automatic Message Queue Protocol","Advanced Multi-Queue Protocol"],answer:"Advanced Message Queuing Protocol"},
+  {question:"Which of the following is a disadvantage of IoT in automation?",options:["High efficiency","Real-time data processing","Security risks and privacy issues","Remote control capability"],answer:"Security risks and privacy issues"},
+  {question:"What happens if ACK is not received for a CON message in CoAP?",options:["Message is dropped","Message is stored","Message is retransmitted","Connection is closed"],answer:"Message is retransmitted"},
+  {question:"What does CoAP stand for?",options:["Constrained Application Protocol","Connected Application Protocol","Common Application Protocol","Constrained Access Protocol"],answer:"Constrained Application Protocol"},
+  {question:"What is ZigBee based on?",options:["Wi-Fi 802.11","Bluetooth 5.0","Z-Wave","IEEE 802.15.4"],answer:"IEEE 802.15.4"},
+  {question:"In AMQP, which component sends messages to the exchange?",options:["Consumer","Queue","Broker","Producer"],answer:"Producer"},
+  {question:"In AMQP, which component temporarily stores messages?",options:["Exchange","Producer","Consumer","Queue"],answer:"Queue"},
+  {question:"In CoAP, what is used to identify resources on the server?",options:["IP Address","MAC Address","URI (Uniform Resource Identifier)","Port Number"],answer:"URI (Uniform Resource Identifier)"},
+  {question:"In AMQP, which component routes messages to appropriate queues?",options:["Producer","Consumer","Queue","Exchange"],answer:"Exchange"},
+  {question:"What is the maximum data rate supported by IEEE 802.15.4?",options:["1 Mbps","100 Mbps","10 Mbps","250 kbps"],answer:"250 kbps"},
+  {question:"Which type of industrial automation allows machines to be reprogrammed for different tasks?",options:["Fixed Automation","Hard Automation","Flexible Automation","Programmable Automation"],answer:"Programmable Automation"},
+  {question:"What is the role of the Base Station in a WSN?",options:["Acts as end device","Generates power for sensors","Collects data from sensor nodes and sends it to internet","Encrypts sensor data"],answer:"Collects data from sensor nodes and sends it to internet"},
+  {question:"Which IoT application area uses GPS tracking and smart vehicles?",options:["Smart Homes","Healthcare","Smart Classrooms","Smart Transportation"],answer:"Smart Transportation"},
+  {question:"Which type of NFC device does not have its own power supply?",options:["Active NFC Device","Hybrid NFC Device","Dynamic NFC Device","Passive NFC Device"],answer:"Passive NFC Device"},
+  {question:"What is a key advantage of AMQP over MQTT?",options:["Simpler structure","Lower bandwidth usage","No data loss and high reliability","Lower resource requirement"],answer:"No data loss and high reliability"},
+  {question:"Which type of industrial automation is designed for specific tasks only and cannot be easily changed?",options:["Flexible Automation","Programmable Automation","Adaptive Automation","Fixed Automation"],answer:"Fixed Automation"},
+  {question:"What is a Scatternet in Bluetooth?",options:["A network of passive NFC devices","A network formed by connecting two or more PicoNets together","A single Bluetooth device broadcasting to all","A ZigBee mesh network"],answer:"A network formed by connecting two or more PicoNets together"},
+  {question:"Which transport protocol does CoAP use?",options:["TCP","FTP","HTTP","UDP"],answer:"UDP"},
+  {question:"Which sensor measures moisture in air and is used in agriculture?",options:["Temperature Sensor","Pressure Sensor","Motion Sensor","Humidity Sensor"],answer:"Humidity Sensor"},
+  {question:"Which NFC mode is used to read an NFC tag on a poster?",options:["Card Emulation Mode","Peer-to-Peer Mode","Broadcast Mode","Reader/Writer Mode"],answer:"Reader/Writer Mode"},
+  {question:"Which component of IoT collects real-world data?",options:["User Interface","Connectivity","Data Processing","Sensors/Devices"],answer:"Sensors/Devices"},
+  {question:"NFC works based on which principle?",options:["Radio Frequency Identification","Electromagnetic Induction","Infrared Transmission","Acoustic Transmission"],answer:"Electromagnetic Induction"},
+  {question:"Which ZigBee component uses the least power and cannot route data?",options:["Coordinator","Router","Bridge","End Device"],answer:"End Device"},
+  {question:"What does XMPP stand for?",options:["Extended Messaging and Presence Protocol","Extensible Multimedia Presence Protocol","Extensible Messaging and Presence Protocol","Extended Message Processing Protocol"],answer:"Extensible Messaging and Presence Protocol"},
+  {question:"Which ZigBee topology connects all devices to a single coordinator?",options:["Mesh Topology","Bus Topology","Tree Topology","Star Topology"],answer:"Star Topology"},
+  {question:"Which type of NFC device has its own power supply and can send and receive data?",options:["Passive NFC Device","Hybrid NFC Device","Active NFC Device","Static NFC Device"],answer:"Active NFC Device"},
+  {question:"In which NFC mode do two devices communicate and both can send and receive data?",options:["Card Emulation Mode","Reader/Writer Mode","Broadcast Mode","Peer-to-Peer Mode"],answer:"Peer-to-Peer Mode"},
+  {question:"What frequency band does IEEE 802.15.4 operate in?",options:["5 GHz","900 MHz","2.4 GHz","433 MHz"],answer:"2.4 GHz"},
+  {question:"Which type of industrial automation uses computer-controlled robots that can adapt automatically?",options:["Fixed Automation","Hard Automation","Programmable Automation","Flexible Automation"],answer:"Flexible Automation"},
+  {question:"Which IEEE 802.15.4 variant is designed for smart utility networks and smart meters?",options:["IEEE 802.15.4a","IEEE 802.15.4f","IEEE 802.15.4e","IEEE 802.15.4g"],answer:"IEEE 802.15.4g"},
+  {question:"In MQTT, which component sends data to the broker?",options:["Subscriber","Consumer","Router","Publisher"],answer:"Publisher"},
+  {question:"What does WMSN stand for?",options:["Wide Mobile Sensor Network","Wired Multimedia Sensor Node","Wireless Multimedia Sensor Network","Wireless Monitored Sensor Node"],answer:"Wireless Multimedia Sensor Network"},
+  {question:"What does IEEE 802.15.4 define?",options:["High-speed wired networking standard","Long-range satellite communication","Low-rate wireless personal area network standard","Wi-Fi communication standard"],answer:"Low-rate wireless personal area network standard"},
+  {question:"What is the approximate working distance of NFC?",options:["100 meters","10 meters","4 centimeters","1 meter"],answer:"4 centimeters"},
+  {question:"Which of the following is a feature of IoT?",options:["Manual data entry","Isolated networks","Real-time data monitoring","Reduced connectivity"],answer:"Real-time data monitoring"},
+  {question:"What does WSN stand for?",options:["Wired Sensor Network","Wide Service Network","Wireless Sensor Network","Wireless System Node"],answer:"Wireless Sensor Network"},
+  {question:"Which IoT protocol uses XML format that increases data size as a disadvantage?",options:["MQTT","CoAP","AMQP","XMPP"],answer:"XMPP"},
+  {question:"What does a sensor do in an IoT system?",options:["Stores data permanently","Routes network traffic","Detects physical quantities and converts them to electrical signals","Manages cloud servers"],answer:"Detects physical quantities and converts them to electrical signals"},
+  {question:"In MQTT, which component receives data from the broker?",options:["Publisher","Producer","Exchange","Subscriber"],answer:"Subscriber"},
+  {question:"Which type of sensor network is deployed below the ground to monitor soil conditions?",options:["Terrestrial Sensor Network","Mobile Sensor Network","Underwater Sensor Network","Underground Sensor Network"],answer:"Underground Sensor Network"},
+  {question:"Which data format does XMPP use to transmit data?",options:["JSON","YAML","CSV","XML"],answer:"XML"},
+  {question:"Which WSN topology has the highest reliability with no single point of failure?",options:["Star Topology","Bus Topology","Tree Topology","Mesh Topology"],answer:"Mesh Topology"},
+  {question:"What does MQTT stand for?",options:["Message Queue Transfer Technology","Multi Queue Telemetry Transport","Message Queuing Telemetry Transport","Managed Query Telemetry Transport"],answer:"Message Queuing Telemetry Transport"},
+  {question:"Which IoT application is used for patient monitoring?",options:["Smart Homes","Transportation","Healthcare","Smart Cities"],answer:"Healthcare"},
+  {question:"In XMPP, what is a Stanza?",options:["A type of encryption","An XML element used for communication","A network node","A routing protocol"],answer:"An XML element used for communication"},
+  {question:"Which WSN topology fails completely if the central node fails?",options:["Mesh Topology","Tree Topology","Ring Topology","Star Topology"],answer:"Star Topology"},
+  {question:"Which sensor is used in gas leakage detectors?",options:["Humidity Sensor","Motion Sensor","Gas Sensor","Pressure Sensor"],answer:"Gas Sensor"},
+  {question:"Which ZigBee component extends the network range by routing data?",options:["Coordinator","End Device","Bridge","Router"],answer:"Router"},
+  {question:"Which communication model does MQTT use?",options:["Client-Server","Request-Response","Peer-to-Peer","Publish-Subscribe"],answer:"Publish-Subscribe"}
+];
+
+const QUESTIONS_BD = [
+  {question:"Which type of Data Warehouse provides a logical view of data without physically storing it?",options:["Enterprise Data Warehouse","Operational Data Store","Data Mart","Virtual Data Warehouse"],answer:"Virtual Data Warehouse"},
+  {question:"Which type of analytics answers the question 'What happened?'",options:["Prescriptive Analytics","Predictive Analytics","Diagnostic Analytics","Descriptive Analytics"],answer:"Descriptive Analytics"},
+  {question:"Which step in Text Data Mining breaks text into words or sentences?",options:["Transformation","Text Collection","Sentiment Analysis","Tokenization"],answer:"Tokenization"},
+  {question:"What type of learning does Clustering use?",options:["Supervised Learning","Reinforcement Learning","Unsupervised Learning","Deep Learning"],answer:"Unsupervised Learning"},
+  {question:"Which OLAP operation selects data from one single dimension of a cube?",options:["Pivot","Roll-Up","Dice","Slice"],answer:"Slice"},
+  {question:"Which type of OLAP is a combination of MOLAP and ROLAP?",options:["DOLAP","ROLAP","MOLAP","HOLAP"],answer:"HOLAP"},
+  {question:"Which technologies are primarily associated with the Big Data era?",options:["SQL and Oracle","Excel and Access","DBMS and SQL","Hadoop and Spark"],answer:"Hadoop and Spark"},
+  {question:"What does Data Analytics aim to do?",options:["Store large volumes of data","Physically delete old data","Transmit data over networks","Examine and analyze data to support decision-making"],answer:"Examine and analyze data to support decision-making"},
+  {question:"What does OLTP stand for?",options:["Online Transfer and Processing","Offline Transaction Protocol","Operational Large-scale Transfer Protocol","Online Transaction Processing"],answer:"Online Transaction Processing"},
+  {question:"What is the relationship between KDD and Data Mining?",options:["Data Mining is the complete process; KDD is one step","They are completely unrelated","KDD and Data Mining are the same thing","Data Mining is one step inside the broader KDD process"],answer:"Data Mining is one step inside the broader KDD process"},
+  {question:"Which type of data mining analyzes and summarizes past data to find patterns?",options:["Predictive Data Mining","Outlier Detection","Regression","Descriptive Data Mining"],answer:"Descriptive Data Mining"},
+  {question:"Which type of Data Warehouse is a centralized system that stores data for the entire organization?",options:["Data Mart","Virtual Data Warehouse","Operational Data Store","Enterprise Data Warehouse (EDW)"],answer:"Enterprise Data Warehouse (EDW)"},
+  {question:"Which type of analytics answers the question 'Why did it happen?'",options:["Prescriptive Analytics","Descriptive Analytics","Predictive Analytics","Diagnostic Analytics"],answer:"Diagnostic Analytics"},
+  {question:"Which characteristic of a Data Warehouse means it is organized around subjects like sales or customers?",options:["Integrated","Time-Variant","Non-Volatile","Subject-Oriented"],answer:"Subject-Oriented"},
+  {question:"Which type of Big Data structure is partially organized and includes formats like JSON and XML?",options:["Structured Data","Encoded Data","Unstructured Data","Semi-Structured Data"],answer:"Semi-Structured Data"},
+  {question:"What is a Data Warehouse?",options:["A distributed processing framework","A centralized repository for collecting and storing large amounts of data for analysis","A real-time transaction system","A social media platform"],answer:"A centralized repository for collecting and storing large amounts of data for analysis"},
+  {question:"Which of the following is a popular Data Mining tool?",options:["Photoshop","AutoCAD","WEKA","Microsoft Word"],answer:"WEKA"},
+  {question:"Which data mining technique assigns data into predefined categories?",options:["Clustering","Regression","Association","Classification"],answer:"Classification"},
+  {question:"Which era introduced DBMS and SQL for structured storage of data?",options:["1960s – Data Collection","2010s – Big Data","1990s – Data Warehousing","1970s–1980s – Database Systems"],answer:"1970s–1980s – Database Systems"},
+  {question:"Which tool is used for Data Mining and analytics alongside WEKA?",options:["Power BI","RapidMiner","Tableau","Excel"],answer:"RapidMiner"},
+  {question:"Which type of analytics answers the question 'What should we do?'",options:["Predictive Analytics","Descriptive Analytics","Diagnostic Analytics","Prescriptive Analytics"],answer:"Prescriptive Analytics"},
+  {question:"Which framework is used for batch processing of Big Data?",options:["MongoDB","OLAP","MySQL","MapReduce"],answer:"MapReduce"},
+  {question:"Which system uses historical data for analysis while OLTP uses current data?",options:["RDBMS","OLTP","ETL","OLAP"],answer:"OLAP"},
+  {question:"Which type of Data Warehouse is small and focused on a specific department?",options:["Enterprise Data Warehouse","Virtual Data Warehouse","Operational Data Store","Data Mart"],answer:"Data Mart"},
+  {question:"What does ETL stand for in Data Mining Architecture?",options:["Evaluate, Transfer, Load","Extract, Transform, Load","Extract, Test, Link","Evaluate, Translate, Log"],answer:"Extract, Transform, Load"},
+  {question:"Which data mining technique finds relationships between items such as 'people who buy milk also buy bread'?",options:["Clustering","Regression","Classification","Association"],answer:"Association"},
+  {question:"Which type of OLAP stores data in multidimensional cube format for very fast query performance?",options:["ROLAP","DOLAP","HOLAP","MOLAP"],answer:"MOLAP"},
+  {question:"Which Data Warehouse design approach builds Data Marts first and then combines them?",options:["Top-Down Approach","Hybrid Approach","Federated Approach","Bottom-Up Approach (Kimball)"],answer:"Bottom-Up Approach (Kimball)"},
+  {question:"Which type of analytics answers the question 'What will happen?'",options:["Diagnostic Analytics","Descriptive Analytics","Prescriptive Analytics","Predictive Analytics"],answer:"Predictive Analytics"},
+  {question:"Which OLAP operation selects data from multiple dimensions simultaneously?",options:["Slice","Roll-Up","Pivot","Dice"],answer:"Dice"},
+  {question:"Which technique converts text into a structured format using methods like TF-IDF?",options:["Tokenization","Text Collection","Transformation","Clustering"],answer:"Transformation"},
+  {question:"What is Metadata?",options:["Processed output of data mining","Large unstructured data files","Data about data that describes its structure, meaning, and properties","Raw data collected from sensors"],answer:"Data about data that describes its structure, meaning, and properties"},
+  {question:"What is Text Data Mining also known as?",options:["Data Warehousing","Text Mining","Data Transformation","Sentiment Storage"],answer:"Text Mining"},
+  {question:"Which component of Data Mining Architecture is considered the core part that applies algorithms?",options:["ETL Process","Data Sources","User Interface","Data Mining Engine"],answer:"Data Mining Engine"},
+  {question:"Which data mining technique groups similar data without predefined labels?",options:["Classification","Regression","Prediction","Clustering"],answer:"Clustering"},
+  {question:"Which Big Data framework performs fast, in-memory processing?",options:["Hadoop","MapReduce","MySQL","Apache Spark"],answer:"Apache Spark"},
+  {question:"What is the correct working flow in Data Mining Architecture?",options:["Data Mining Engine → ETL → Data Sources → User Interface","User Interface → Data Warehouse → ETL → Data Sources","Data Sources → ETL → Data Warehouse → Data Mining Engine → Pattern Evaluation → User Interface","Data Sources → Data Mining Engine → ETL → User Interface"],answer:"Data Sources → ETL → Data Warehouse → Data Mining Engine → Pattern Evaluation → User Interface"},
+  {question:"What is Data Mining?",options:["Process of storing large datasets","Process of extracting useful patterns and knowledge from large amounts of data","Process of creating databases","Process of transmitting data over networks"],answer:"Process of extracting useful patterns and knowledge from large amounts of data"},
+  {question:"Which Data Warehouse design approach builds the Data Warehouse first, then creates Data Marts?",options:["Hybrid Approach","Bottom-Up Approach (Kimball)","Federated Approach","Top-Down Approach (Inmon)"],answer:"Top-Down Approach (Inmon)"},
+  {question:"Which type of OLAP stores data in relational databases and uses SQL queries?",options:["MOLAP","DOLAP","HOLAP","ROLAP"],answer:"ROLAP"},
+  {question:"Which tool is commonly used for Data Analytics visualization?",options:["WEKA","RapidMiner","KNIME","Tableau"],answer:"Tableau"},
+  {question:"Which type of data mining is used to predict future outcomes?",options:["Descriptive Data Mining","Clustering","Predictive Data Mining","Association"],answer:"Predictive Data Mining"},
+  {question:"Which type of Big Data structure includes emails, images, videos, and audio with no fixed format?",options:["Semi-Structured Data","Encoded Data","Structured Data","Unstructured Data"],answer:"Unstructured Data"},
+  {question:"What is the first step in the Data Mining Implementation Process?",options:["Data Collection","Data Cleaning","Problem Definition","Data Transformation"],answer:"Problem Definition"},
+  {question:"Which characteristic of a Data Warehouse means it combines data from multiple sources?",options:["Non-Volatile","Subject-Oriented","Time-Variant","Integrated"],answer:"Integrated"},
+  {question:"What type of learning does Classification use?",options:["Unsupervised Learning","Reinforcement Learning","Semi-supervised Learning","Supervised Learning"],answer:"Supervised Learning"},
+  {question:"Which data mining technique is used to predict continuous values like house prices?",options:["Association","Classification","Clustering","Regression"],answer:"Regression"},
+  {question:"Which 'V' of Big Data refers to the speed at which data is generated and processed?",options:["Volume","Value","Veracity","Velocity"],answer:"Velocity"},
+  {question:"Which OLAP operation changes the view or orientation of data by interchanging rows and columns?",options:["Dice","Slice","Roll-Up","Pivot"],answer:"Pivot"},
+  {question:"Which 'V' of Big Data refers to the quality and reliability of data?",options:["Volume","Value","Variety","Veracity"],answer:"Veracity"},
+  {question:"What does Big Data refer to?",options:["Data stored only in relational databases","Small datasets processed using Excel","Very large, complex, and fast-growing data that cannot be processed using traditional tools","Data encrypted for security purposes"],answer:"Very large, complex, and fast-growing data that cannot be processed using traditional tools"},
+  {question:"Which data mining technique identifies unusual or abnormal data points?",options:["Prediction","Association","Regression","Outlier Detection"],answer:"Outlier Detection"},
+  {question:"Which OLAP operation summarizes data by moving from a detailed level to a higher level?",options:["Drill-Down","Pivot","Slice","Roll-Up"],answer:"Roll-Up"},
+  {question:"Which step in the Data Mining process removes errors, missing values, and duplicates?",options:["Data Transformation","Data Collection","Data Mining","Data Cleaning"],answer:"Data Cleaning"},
+  {question:"What does OLAP stand for?",options:["Online Logical Analysis Protocol","Online Analytical Processing","Operational Large-scale Analytics Processing","Offline Analytical Processing"],answer:"Online Analytical Processing"},
+  {question:"Which era introduced Data Warehousing for centralized storage and reporting?",options:["1960s","1970s–1980s","2010s","1990s"],answer:"1990s"},
+  {question:"Which 'V' of Big Data refers to the different types of data such as text, images, and videos?",options:["Volume","Velocity","Value","Variety"],answer:"Variety"},
+  {question:"Which 'V' of Big Data refers to the amount of data generated?",options:["Velocity","Veracity","Value","Volume"],answer:"Volume"},
+  {question:"Which system is used for day-to-day transactions like ATM operations and online shopping?",options:["OLAP","Data Warehouse","Data Mart","OLTP"],answer:"OLTP"},
+  {question:"Which type of Big Data structure is organized in rows and columns stored in RDBMS?",options:["Semi-Structured Data","Unstructured Data","Encoded Data","Structured Data"],answer:"Structured Data"}
+];
+
+const QUESTIONS_PY = [
+  {question:"Which function is used to open a file in Python?",options:["file()","read()","open()","load()"],answer:"open()"},
+  {question:"What is the difference between an Error and an Exception in Python?",options:["Errors are handled; Exceptions are not","Errors occur only at runtime; Exceptions occur only at compile time","Both are exactly the same thing","Errors are serious issues that stop execution; Exceptions are conditions that can be handled"],answer:"Errors are serious issues that stop execution; Exceptions are conditions that can be handled"},
+  {question:"What are arguments in a Python function?",options:["Variables declared at the top of the file","Values returned by the function","Variables defined in the function header","Actual values passed to the function when it is called"],answer:"Actual values passed to the function when it is called"},
+  {question:"Which statement is used to exit a loop immediately in Python?",options:["exit","stop","continue","break"],answer:"break"},
+  {question:"Which of the following correctly creates a tuple in Python?",options:["t = [1, 2, 3]","t = {1, 2, 3}","t = (1, 2, 3)","t = <1, 2, 3>"],answer:"t = (1, 2, 3)"},
+  {question:"Which of the following correctly creates a list in Python?",options:["list = (1, 2, 3)","list = {1, 2, 3}","list = [1, 2, 3]","list = <1, 2, 3>"],answer:"list = [1, 2, 3]"},
+  {question:"Which block is used to handle exceptions in Python?",options:["catch-throw","error-handle","do-rescue","try-except"],answer:"try-except"},
+  {question:"Which keyword is used to import a module in Python?",options:["include","require","use","import"],answer:"import"},
+  {question:"What does the logical operator 'and' return when both conditions are True?",options:["False","None","0","True"],answer:"True"},
+  {question:"Which loop iterates over a sequence of items in Python?",options:["repeat","do-while","while","for"],answer:"for"},
+  {question:"Which symbol is used to define variable-length positional arguments in Python?",options:["**","//","*","&"],answer:"*"},
+  {question:"What is Method Overriding in Python?",options:["Defining a method with variable arguments","Creating a new method in the parent class","Redefining a parent class method in a child class","Importing a method from a module"],answer:"Redefining a parent class method in a child class"},
+  {question:"What is aliasing in Python lists?",options:["Creating a sorted copy of a list","Giving a list a new variable name that points to the same list object","Reversing a list","Removing duplicate elements"],answer:"Giving a list a new variable name that points to the same list object"},
+  {question:"What is the flow of execution in Python?",options:["Functions are executed before the main program","Execution happens randomly","Statements are executed from top to bottom unless interrupted","Execution starts from the last line"],answer:"Statements are executed from top to bottom unless interrupted"},
+  {question:"Which of the following is a Bitwise AND operator in Python?",options:["|","^","~","&"],answer:"&"},
+  {question:"Which operator is used for exponentiation in Python?",options:["^","//","*","**"],answer:"**"},
+  {question:"What keyword is used to define a function in Python?",options:["function","define","func","def"],answer:"def"},
+  {question:"Which function is used to get user input in Python?",options:["scan()","read()","get()","input()"],answer:"input()"},
+  {question:"Which operator checks if a value exists within a sequence?",options:["is","in","==","has"],answer:"in"},
+  {question:"Which property of strings means they cannot be changed after creation?",options:["Mutability","Volatility","Immutability","Flexibility"],answer:"Immutability"},
+  {question:"Which command installs a package using PIP?",options:["pip install package_name","pip add package_name","pip get package_name","python install package_name"],answer:"pip install package_name"},
+  {question:"What is a Python Array?",options:["A dictionary of key-value pairs","A set of unique values","A collection of items of the same data type stored sequentially","A string of characters"],answer:"A collection of items of the same data type stored sequentially"},
+  {question:"Which symbol is used to define variable-length keyword arguments in Python?",options:["*","//","&","**"],answer:"**"},
+  {question:"What is string slicing in Python?",options:["Deleting characters from a string","Sorting characters of a string","Joining two strings","Extracting a portion of a string using index range"],answer:"Extracting a portion of a string using index range"},
+  {question:"What is a Fruitful Function?",options:["A function that imports modules","A function that takes no arguments","A function that contains a loop","A function that returns a value"],answer:"A function that returns a value"},
+  {question:"Which of the following correctly creates a dictionary in Python?",options:["d = ['key':'value']","d = ('key', 'value')","d = {'key': 'value'}","d = ['key', 'value']"],answer:"d = {'key': 'value'}"},
+  {question:"Which assignment operator adds and assigns in one step?",options:["=+","+=","+==","++"],answer:"+="},
+  {question:"What is the output of bool(0) in Python?",options:["1","True","None","False"],answer:"False"},
+  {question:"What does PIP stand for in Python?",options:["Python Installation Protocol","Python Integrated Package","Pip Installs Packages","Python Import Program"],answer:"Pip Installs Packages"},
+  {question:"Which statement is used to import a specific function from a module?",options:["import function from module","include module.function","use module import function","from module import function"],answer:"from module import function"},
+  {question:"What is the output of 'Hello' + ' ' + 'World'?",options:["Hello World","HelloWorld","Error","'Hello' 'World'"],answer:"Hello World"},
+  {question:"How do you write a single-line comment in Python?",options:["// comment","/* comment */","-- comment","# comment"],answer:"# comment"},
+  {question:"Which loop keeps executing as long as a condition is True?",options:["for loop","do-while loop","repeat loop","while loop"],answer:"while loop"},
+  {question:"Which data structure in Python stores unique, unordered elements?",options:["List","Tuple","Dictionary","Set"],answer:"Set"},
+  {question:"What does the string method strip() do?",options:["Converts to uppercase","Splits the string","Reverses the string","Removes leading and trailing whitespace"],answer:"Removes leading and trailing whitespace"},
+  {question:"Which operator checks if two variables point to the same object?",options:["==","is","in","==="],answer:"is"},
+  {question:"What is Tuple Assignment in Python?",options:["Assigning a new element to a tuple","Assigning values to multiple variables from a tuple in one statement","Deleting a tuple","Sorting a tuple"],answer:"Assigning values to multiple variables from a tuple in one statement"},
+  {question:"What is the output of type(3.14) in Python?",options:["<class 'int'>","<class 'double'>","<class 'float'>","<class 'number'>"],answer:"<class 'float'>"},
+  {question:"What keyword is used to define a class in Python?",options:["def","object","struct","class"],answer:"class"},
+  {question:"What is the correct symbol for the modulus operator in Python?",options:["//","mod","^","%"],answer:"%"},
+  {question:"What is a Default Argument in Python?",options:["An argument with no value","An argument passed as a keyword","A variable-length argument","An argument that has a predefined value if none is provided"],answer:"An argument that has a predefined value if none is provided"},
+  {question:"What is an Anonymous Function in Python?",options:["A function with no return value","A function defined without a name using the lambda keyword","A function inside a class","A function imported from a module"],answer:"A function defined without a name using the lambda keyword"},
+  {question:"How do you define a User Defined Exception in Python?",options:["By importing the exceptions module","By using the raise keyword alone","By creating a class that inherits from the Exception class","By using the try block"],answer:"By creating a class that inherits from the Exception class"},
+  {question:"What is list slicing in Python?",options:["Removing all elements from a list","Sorting the list","Reversing the list","Extracting a subset of a list using index range"],answer:"Extracting a subset of a list using index range"},
+  {question:"What is the output of: for i in range(3): print(i)?",options:["1 2 3","0 1 2 3","0 1 2","1 2"],answer:"0 1 2"},
+  {question:"What is a Python Package?",options:["A single Python file","A collection of modules organized in a directory with an __init__.py file","A built-in Python function","A Python class"],answer:"A collection of modules organized in a directory with an __init__.py file"},
+  {question:"Which statement skips the current iteration and moves to the next in Python?",options:["pass","break","skip","continue"],answer:"continue"},
+  {question:"How do you access the first element of an array in Python?",options:["array[1]","array(0)","array.first()","array[0]"],answer:"array[0]"},
+  {question:"Which method returns all keys of a dictionary in Python?",options:["dict.items()","dict.values()","dict.all()","dict.keys()"],answer:"dict.keys()"},
+  {question:"Which of the following is a Boolean value in Python?",options:["true","TRUE","True","yes"],answer:"True"},
+  {question:"What does the string method upper() do?",options:["Returns the length of the string","Reverses the string","Converts all characters to uppercase","Removes whitespace"],answer:"Converts all characters to uppercase"},
+  {question:"What is cloning a list in Python?",options:["Reversing the list elements","Removing duplicates","Creating a separate independent copy of a list","Sorting a list"],answer:"Creating a separate independent copy of a list"},
+  {question:"What is a variable in Python?",options:["A fixed constant value","A reserved keyword","A named location in memory that stores a value","A data type"],answer:"A named location in memory that stores a value"},
+  {question:"Which of the following is a list operation in Python?",options:["list.push()","list.enqueue()","list.append()","list.insert_end()"],answer:"list.append()"},
+  {question:"What is Inheritance in Python OOP?",options:["Hiding data inside a class","A mechanism where a child class acquires properties and methods of a parent class","Defining multiple methods with the same name","Overriding a constructor"],answer:"A mechanism where a child class acquires properties and methods of a parent class"},
+  {question:"What is the precedence order in Python? (Highest first)",options:["Addition → Multiplication → Parentheses","Parentheses → Exponentiation → Multiplication/Division → Addition/Subtraction","Multiplication → Parentheses → Exponentiation","Exponentiation → Parentheses → Multiplication"],answer:"Parentheses → Exponentiation → Multiplication/Division → Addition/Subtraction"},
+  {question:"What is the result of 10 // 3 in Python?",options:["3.33","3","1","4"],answer:"3"},
+  {question:"Which file mode is used to open a file for writing in Python?",options:["r","a","x","w"],answer:"w"},
+  {question:"What is a Local Variable in Python?",options:["A variable accessible throughout the program","A variable defined inside a function and accessible only within it","A variable declared using the global keyword","A module-level variable"],answer:"A variable defined inside a function and accessible only within it"},
+  {question:"What is Data Hiding in Python OOP?",options:["Deleting class attributes","Restricting access to internal data of a class using private variables","Storing data in files","Encrypting data using algorithms"],answer:"Restricting access to internal data of a class using private variables"},
+  {question:"Which file mode opens a file for appending data in Python?",options:["w","r","x","a"],answer:"a"},
+  {question:"Which of the following is a valid Python data type?",options:["char","int","varchar","decimal"],answer:"int"},
+  {question:"What does list mutability mean in Python?",options:["Lists cannot be changed after creation","List elements can be modified after creation","Lists are automatically sorted","Lists can only hold strings"],answer:"List elements can be modified after creation"},
+  {question:"What is a Keyword Argument in Python?",options:["An argument passed with its parameter name explicitly","An argument passed by position","An argument with a default value","A variable-length argument"],answer:"An argument passed with its parameter name explicitly"},
+  {question:"Which control flow statement is used to check multiple conditions in Python?",options:["if-else-elif","if-elif-else","switch-case","if-else-if"],answer:"if-elif-else"},
+  {question:"What is 'self' in a Python class?",options:["A global variable","A keyword that imports modules","A reference to the current instance of the class","A built-in function"],answer:"A reference to the current instance of the class"},
+  {question:"What does the 'pass' statement do in Python?",options:["Exits the program","Breaks the loop","Skips the current iteration","Acts as a placeholder that does nothing"],answer:"Acts as a placeholder that does nothing"},
+  {question:"What is the name of the constructor method in Python?",options:["__start__","__new__","__construct__","__init__"],answer:"__init__"},
+  {question:"What is a Global Variable in Python?",options:["A variable declared inside a function","A variable accessible only inside a loop","A constant that never changes","A variable defined outside all functions and accessible throughout the program"],answer:"A variable defined outside all functions and accessible throughout the program"},
+  {question:"Which keyword is used to manually raise an exception in Python?",options:["throw","error","raise","trigger"],answer:"raise"}
+];
+
 // ── Subject metadata ─────────────────────────────────────────
 const SUBJECTS = {
     ds: { name: 'Data Structures',       subtitle: 'Stacks, Queues, Trees, Graphs, Sorting & Searching', questions: QUESTIONS_DS },
@@ -541,7 +834,11 @@ const SUBJECTS = {
     se: { name: 'Software Engineering',  subtitle: 'SDLC Models, Agile, Design Principles, Testing & Maintenance', questions: QUESTIONS_SE },
     java: { name: 'Java Programming',    subtitle: 'OOP, Inheritance, Interfaces, Threads, Collections & I/O', questions: QUESTIONS_JAVA },
     wt: { name: 'Web Technology',        subtitle: 'HTML, CSS, XML, JavaScript, AJAX, jQuery & PHP', questions: QUESTIONS_WT },
-    de: { name:'Digital Electronics',    subtitle: 'Basic & Analog Electronics, Digital Electronics, Comm. & Signals, Microprocessors', questions: QUESTIONS_DE }
+    de: { name:'Digital Electronics',    subtitle: 'Basic & Analog Electronics, Digital Electronics, Comm. & Signals, Microprocessors', questions: QUESTIONS_DE },
+    dbms: { name: 'DBMS',                subtitle: 'RDBMS, SQL, PL/SQL, NoSQL & MongoDB', questions: QUESTIONS_DBMS },
+    iot: { name: 'Internet of Things',   subtitle: 'Sensors, Protocols, WSN, Communication & Automation', questions: QUESTIONS_IOT },
+    bd: { name: 'Big Data',              subtitle: 'Data Mining, Analytics, Warehousing, OLAP & Big Data', questions: QUESTIONS_BD },
+    py: { name: 'Python Programming',    subtitle: 'Syntax, OOP, Data Structures, File Handling & Exceptions', questions: QUESTIONS_PY },
 };
 
 // ── Detect subject from URL ───────────────────────────────────
@@ -652,7 +949,56 @@ document.getElementById('submit-btn').addEventListener('click', () => {
         shuffledQuestions: quizQuestions
     }));
 
+    quizSubmitted = true;
     window.location.href = 'result.html';
 });
 
 window.onload = initQuiz;
+
+// ── Navigation guard ──────────────────────────────────────────
+let quizSubmitted = false;
+
+let pendingHref = null;
+
+document.addEventListener('click', e => {
+    if (quizSubmitted) return;
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+
+    const href = anchor.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    const answered = quizQuestions.filter(q =>
+        document.querySelector(`input[name="question-${q.id}"]:checked`)
+    ).length;
+
+    if (answered === 0) return;
+
+    e.preventDefault();
+    pendingHref = href;
+    document.getElementById('nav-guard-banner').classList.add('show');
+});
+
+document.getElementById('nav-guard-cancel').addEventListener('click', () => {
+    document.getElementById('nav-guard-banner').classList.remove('show');
+    pendingHref = null;
+});
+
+document.getElementById('nav-guard-confirm').addEventListener('click', () => {
+    if (pendingHref) {
+        quizSubmitted = true;
+        window.location.href = pendingHref;
+    }
+});
+
+// Browser back / refresh / tab close
+window.addEventListener('beforeunload', e => {
+    if (quizSubmitted) return;
+    const answered = quizQuestions.filter(q =>
+        document.querySelector(`input[name="question-${q.id}"]:checked`)
+    ).length;
+    if (answered > 0) {
+        e.preventDefault();
+        e.returnValue = '';
+    }
+});
