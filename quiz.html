@@ -7,11 +7,99 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #nav-guard-banner {
+            position: fixed;
+            top: 58px; /* sits flush below the nav */
+            left: 0; right: 0;
+            z-index: 200;
+            background: #fff7ed;
+            border-bottom: 2px solid #fed7aa;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            pointer-events: none;
+        }
+        #nav-guard-banner.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: all;
+        }
+        .ng-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .ng-warn-icon {
+            color: #ea580c;
+            flex-shrink: 0;
+            display: flex;
+        }
+        .ng-text {
+            flex: 1;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #9a3412;
+            min-width: 180px;
+        }
+        .ng-text span {
+            font-weight: 400;
+            color: #c2410c;
+        }
+        .ng-btns {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        .ng-stay, .ng-leave {
+            padding: 0.45rem 1.1rem;
+            border-radius: 100px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s ease;
+        }
+        .ng-stay {
+            background: #ea580c;
+            color: #fff;
+        }
+        .ng-stay:hover { background: #c2410c; }
+        .ng-leave {
+            background: transparent;
+            color: #9a3412;
+            border: 1.5px solid #fdba74;
+        }
+        .ng-leave:hover {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #fca5a5;
+        }
+    </style>
 </head>
 <body>
+    <nav class="site-nav">
+        <div class="site-nav-inner">
+            <a href="index.html" class="site-nav-logo">ECET <span>2026</span></a>
+            <div class="site-nav-links">
+                <a href="index.html" class="nav-link">
+                    <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h4a1 1 0 001-1v-3h2v3a1 1 0 001 1h4a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+                    Home
+                </a>
+                <a href="leaderboard.html" class="nav-link">
+                    <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    Leaderboard
+                </a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <header>
-            <a href="index.html" class="back-link">← Back</a>
             <div class="header-inner">
                 <h1 id="quiz-title">ECET Mock Test 2026</h1>
                 <p id="quiz-subtitle">Loading questions...</p>
@@ -33,7 +121,21 @@
             </button>
         </div>
     </div>
+    <!-- Navigation Guard Banner -->
+    <div id="nav-guard-banner">
+        <div class="ng-inner">
+            <span class="ng-warn-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+            </span>
+            <div class="ng-text">Leave the test? <span>Your progress and answers will be lost.</span></div>
+            <div class="ng-btns">
+                <button class="ng-stay" id="nav-guard-cancel">Stay &amp; Continue</button>
+                <button class="ng-leave" id="nav-guard-confirm">Yes, Leave</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
