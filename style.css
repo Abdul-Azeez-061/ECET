@@ -63,12 +63,90 @@ body {
     z-index: 0;
 }
 
+/* ── SITE NAV ────────────────────────────────────────────── */
+.site-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11,20,38,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.site-nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.site-nav-logo span {
+    color: var(--gold);
+}
+
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    border: 1.5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+}
+
+.nav-link.active {
+    color: var(--gold);
+    background: rgba(240,180,41,0.1);
+    border-color: rgba(240,180,41,0.25);
+}
+
+/* Push page content below fixed nav */
+.home-body,
+body:not(.home-body) {
+    padding-top: 74px;
+}
+
 /* ── HOME PAGE ───────────────────────────────────────────── */
 .home-body {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 3rem 1.5rem 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4rem;
 }
 
 .home-container {
@@ -238,7 +316,9 @@ body {
 
 /* ── QUIZ PAGE LAYOUT ────────────────────────────────────── */
 body:not(.home-body) {
-    padding: 2rem 1rem 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 4rem;
     display: block;
     background: var(--gray-50);
 }
