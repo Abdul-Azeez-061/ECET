@@ -931,70 +931,157 @@ function shuffle(arr) {
 }
 
 // ── State ─────────────────────────────────────────────────────
-let quizQuestions = [];
+let quizQuestions  = [];
+let currentIndex   = 0;
+let userAnswers    = {};   // { q.id: selectedValue | null }
+let visitedSet     = new Set();
 
 // ── Progress bar ──────────────────────────────────────────────
 function updateProgress() {
-    const answered = quizQuestions.filter(q => {
-        return document.querySelector(`input[name="question-${q.id}"]:checked`);
-    }).length;
-    const total = quizQuestions.length;
-    const pct = total ? (answered / total) * 100 : 0;
+    const answered = quizQuestions.filter(q => userAnswers[q.id] != null).length;
+    const total    = quizQuestions.length;
+    const pct      = total ? (answered / total) * 100 : 0;
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('progress-text').textContent = `${answered} / ${total} answered`;
+
+    const submitBtn = document.getElementById('submit-btn');
+    if (answered === total && total > 0) submitBtn.classList.add('pulse');
+    else                                  submitBtn.classList.remove('pulse');
+}
+
+// ── Question Palette ──────────────────────────────────────────
+function renderPalette() {
+    const palette = document.getElementById('question-palette');
+    if (!palette) return;
+    palette.innerHTML = '';
+
+    quizQuestions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'q-num-btn';
+        btn.textContent = idx + 1;
+
+        const ans = userAnswers[q.id];
+        if (ans != null)                          btn.classList.add('answered');   // green
+        else if (visitedSet.has(idx) && idx !== currentIndex) btn.classList.add('skipped'); // red
+        if (idx === currentIndex)                 btn.classList.add('current');    // active
+
+        btn.addEventListener('click', () => goToQuestion(idx));
+        palette.appendChild(btn);
+    });
+}
+
+// ── Render a single question ──────────────────────────────────
+function renderQuestion(index) {
+    visitedSet.add(index);
+    currentIndex = index;
+
+    const q         = quizQuestions[index];
+    const container = document.getElementById('quiz-container');
+    container.innerHTML = '';
+
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.style.animation = 'slideInLeft 0.35s ease both';
+
+    const title = document.createElement('div');
+    title.className = 'question-title';
+    title.textContent = `${index + 1}. ${q.question}`;
+    card.appendChild(title);
+
+    q.options.forEach(opt => {
+        const label = document.createElement('label');
+        label.className = 'option-label';
+
+        const radio = document.createElement('input');
+        radio.type  = 'radio';
+        radio.name  = `question-${q.id}`;
+        radio.value = opt;
+        if (userAnswers[q.id] === opt) radio.checked = true;
+
+        radio.addEventListener('change', () => {
+            userAnswers[q.id] = opt;
+            updateProgress();
+            renderPalette();
+            // Highlight selected label
+            card.querySelectorAll('.option-label').forEach(l => l.classList.remove('selected'));
+            label.classList.add('selected');
+        });
+
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(' ' + opt));
+        if (userAnswers[q.id] === opt) label.classList.add('selected');
+        card.appendChild(label);
+    });
+
+    container.appendChild(card);
+
+    // Nav bar
+    const nav = document.createElement('div');
+    nav.className = 'quiz-nav-bar';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'btn nav-prev-btn';
+    prevBtn.innerHTML = `<svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/></svg> Prev`;
+    prevBtn.disabled = index === 0;
+    prevBtn.addEventListener('click', () => goToQuestion(index - 1));
+
+    const qCounter = document.createElement('span');
+    qCounter.className = 'nav-counter';
+    qCounter.textContent = `${index + 1} / ${quizQuestions.length}`;
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'btn nav-next-btn';
+    nextBtn.innerHTML = `Next <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>`;
+    nextBtn.disabled = index === quizQuestions.length - 1;
+    nextBtn.addEventListener('click', () => goToQuestion(index + 1));
+
+    nav.appendChild(prevBtn);
+    nav.appendChild(qCounter);
+    nav.appendChild(nextBtn);
+    container.appendChild(nav);
+
+    renderPalette();
+    updateProgress();
+}
+
+function goToQuestion(index) {
+    if (index < 0 || index >= quizQuestions.length) return;
+    renderQuestion(index);
 }
 
 // ── Build quiz ────────────────────────────────────────────────
 function initQuiz() {
-    document.getElementById('quiz-title').textContent   = `ECET 2026 — ${subject.name}`;
+    document.getElementById('quiz-title').textContent    = `ECET 2026 — ${subject.name}`;
     document.getElementById('quiz-subtitle').textContent = subject.subtitle;
     document.title = `ECET Mock Test — ${subject.name}`;
 
     quizQuestions = JSON.parse(JSON.stringify(subject.questions));
     shuffle(quizQuestions);
 
-    const container = document.getElementById('quiz-container');
-    container.innerHTML = '';
-
     quizQuestions.forEach((q, index) => {
         q.id = index + 1;
         shuffle(q.options);
-
-        const card = document.createElement('div');
-        card.className = 'question-card';
-        card.style.animationDelay = `${Math.min(index * 0.04, 0.8)}s`;
-
-        const title = document.createElement('div');
-        title.className = 'question-title';
-        title.textContent = `${index + 1}. ${q.question}`;
-        card.appendChild(title);
-
-        q.options.forEach(opt => {
-            const label = document.createElement('label');
-            label.className = 'option-label';
-
-            const radio = document.createElement('input');
-            radio.type = 'radio';
-            radio.name = `question-${q.id}`;
-            radio.value = opt;
-            radio.addEventListener('change', updateProgress);
-
-            label.appendChild(radio);
-            label.appendChild(document.createTextNode(' ' + opt));
-            card.appendChild(label);
-        });
-
-        container.appendChild(card);
+        userAnswers[q.id] = null;
     });
 
-    updateProgress();
+    // Insert palette above quiz-container
+    const container = document.getElementById('quiz-container');
+    let palette = document.getElementById('question-palette');
+    if (!palette) {
+        palette = document.createElement('div');
+        palette.id = 'question-palette';
+        palette.className = 'question-palette';
+        container.parentNode.insertBefore(palette, container);
+    }
+
+    currentIndex = 0;
+    visitedSet.clear();
+    renderQuestion(0);
 }
 
 // ── Submit ────────────────────────────────────────────────────
 document.getElementById('submit-btn').addEventListener('click', () => {
-    const unanswered = quizQuestions.filter(q =>
-        !document.querySelector(`input[name="question-${q.id}"]:checked`)
-    ).length;
+    const unanswered = quizQuestions.filter(q => userAnswers[q.id] == null).length;
 
     if (unanswered > 0) {
         const go = confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`);
@@ -1002,16 +1089,8 @@ document.getElementById('submit-btn').addEventListener('click', () => {
     }
 
     let score = 0;
-    let userAnswers = {};
-
     quizQuestions.forEach(q => {
-        const sel = document.querySelector(`input[name="question-${q.id}"]:checked`);
-        if (sel) {
-            userAnswers[q.id] = sel.value;
-            if (sel.value === q.answer) score++;
-        } else {
-            userAnswers[q.id] = null;
-        }
+        if (userAnswers[q.id] === q.answer) score++;
     });
 
     localStorage.setItem('ecet_current_session', JSON.stringify({
@@ -1031,8 +1110,7 @@ window.onload = initQuiz;
 
 // ── Navigation guard ──────────────────────────────────────────
 let quizSubmitted = false;
-
-let pendingHref = null;
+let pendingHref   = null;
 
 document.addEventListener('click', e => {
     if (quizSubmitted) return;
@@ -1042,10 +1120,7 @@ document.addEventListener('click', e => {
     const href = anchor.getAttribute('href');
     if (!href || href.startsWith('#')) return;
 
-    const answered = quizQuestions.filter(q =>
-        document.querySelector(`input[name="question-${q.id}"]:checked`)
-    ).length;
-
+    const answered = quizQuestions.filter(q => userAnswers[q.id] != null).length;
     if (answered === 0) return;
 
     e.preventDefault();
@@ -1068,9 +1143,7 @@ document.getElementById('nav-guard-confirm').addEventListener('click', () => {
 // Browser back / refresh / tab close
 window.addEventListener('beforeunload', e => {
     if (quizSubmitted) return;
-    const answered = quizQuestions.filter(q =>
-        document.querySelector(`input[name="question-${q.id}"]:checked`)
-    ).length;
+    const answered = quizQuestions.filter(q => userAnswers[q.id] != null).length;
     if (answered > 0) {
         e.preventDefault();
         e.returnValue = '';
