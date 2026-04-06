@@ -345,6 +345,7 @@ header {
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
+    animation: slideDown 0.6s ease both;
 }
 
 header::after {
@@ -374,18 +375,21 @@ header::after {
     color: var(--white);
     letter-spacing: -0.02em;
     margin-bottom: 0.25rem;
+    animation: fadeIn 0.6s ease both 0.2s;
 }
 
 .header-inner p {
     color: rgba(255,255,255,0.5);
     font-size: 0.9rem;
     margin-bottom: 1.25rem;
+    animation: fadeIn 0.6s ease both 0.4s;
 }
 
 .progress-bar-wrap {
     display: flex;
     align-items: center;
     gap: 1rem;
+    animation: fadeIn 0.8s ease both 0.3s;
 }
 
 .progress-bar-track {
@@ -420,7 +424,7 @@ header::after {
     box-shadow: var(--shadow-sm);
     border: 1px solid var(--gray-100);
     border-left: 4px solid var(--navy-500);
-    animation: fadeUp 0.4s ease both;
+    animation: slideInLeft 0.5s ease both;
     transition: box-shadow 0.2s, transform 0.2s;
 }
 
@@ -472,6 +476,7 @@ header::after {
     border-color: var(--navy-600);
     color: var(--navy-800);
     font-weight: 500;
+    animation: bounceIn 0.4s ease both;
 }
 
 /* ── Actions / Submit ────────────────────────────────────── */
@@ -479,6 +484,7 @@ header::after {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid var(--gray-200);
+    animation: fadeUp 0.5s ease both 0.8s;
 }
 
 .btn {
@@ -504,6 +510,10 @@ header::after {
     background: linear-gradient(135deg, var(--navy-700), var(--navy-600));
     color: var(--white);
     box-shadow: 0 4px 16px rgba(11,20,38,0.25);
+}
+
+.primary-btn.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
 }
 
 .primary-btn:hover {
@@ -825,6 +835,141 @@ tr.user-row:hover .rank-cell {
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ── Question Palette ────────────────────────────────────── */
+.question-palette {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 1rem 0 0.75rem;
+    margin-bottom: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-300) transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+.question-palette::-webkit-scrollbar { height: 4px; }
+.question-palette::-webkit-scrollbar-track { background: transparent; }
+.question-palette::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 100px; }
+
+.q-num-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--gray-300);
+    background: var(--white);
+    color: var(--gray-700);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    will-change: transform;
+}
+
+.q-num-btn:hover:not(.current) {
+    border-color: var(--navy-400);
+    background: #eef4ff;
+    transform: scale(1.12);
+}
+
+.q-num-btn.answered {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #15803d;
+}
+
+.q-num-btn.skipped {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+}
+
+.q-num-btn.current {
+    background: var(--navy-700);
+    border-color: var(--navy-600);
+    color: var(--white);
+    transform: scale(1.15);
+    box-shadow: 0 3px 10px rgba(11,20,38,0.3);
+}
+
+/* ── Quiz Navigation Bar ─────────────────────────────────── */
+.quiz-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.nav-counter {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--gray-500);
+    white-space: nowrap;
+}
+
+.nav-prev-btn,
+.nav-next-btn {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0.65rem 1.35rem;
+    font-size: 0.9rem;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    border: 1.5px solid var(--gray-200);
+}
+
+.nav-prev-btn:hover:not(:disabled),
+.nav-next-btn:hover:not(:disabled) {
+    background: #eef4ff;
+    border-color: var(--navy-400);
+    color: var(--navy-700);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 12px rgba(11,20,38,0.1);
+}
+
+.nav-prev-btn:disabled,
+.nav-next-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* ── Table scroll wrapper ────────────────────────────────── */
