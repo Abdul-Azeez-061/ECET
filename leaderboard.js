@@ -13,7 +13,7 @@ let activeFilter   = 'all';
 
 // ── Subject label helper ──────────────────────────────────
 function subjectLabel(key) {
-    const map = { ds: 'Data Structures', cn: 'Computer Networks', os: 'Operating Systems', se: 'Software Engineering', java: 'Java Programming', wt: 'Web Technology', de: 'Digtal Electronics', dbms: 'DBMS', iot: 'Internet of Things', bd: 'Big Data', py: 'Python Programming', ap: 'Android Programming' };
+    const map = { ds: 'Data Structures', cn: 'Computer Networks', os: 'Operating Systems', se: 'Software Engineering', java: 'Java Programming', wt: 'Web Technology', de: 'Digtal Electronics', dbms: 'DBMS', iot: 'Internet of Things', bd: 'Big Data', py: 'Python Programming', ap: 'Android Programming', chem_easy: 'Chemistry — Easy', chem_hard: 'Chemistry — Hard', phy_easy: 'Physics — Easy', phy_hard: 'Physics — Hard' };
     return map[key] || key || '—';
 }
 
