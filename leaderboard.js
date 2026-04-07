@@ -3,17 +3,57 @@ const analysisSection   = document.getElementById('analysis-section');
 const analysisTitle     = document.getElementById('analysis-title');
 const analysisContent   = document.getElementById('analysis-content');
 const analysisTabs      = document.querySelectorAll('[data-tab]');
-const filterBtns        = document.querySelectorAll('[data-filter]');
+const filterContainer   = document.getElementById('filter-container');
 
 let leaderboard = JSON.parse(localStorage.getItem('ecet_leaderboard') || '[]');
 leaderboard.sort((a, b) => (b.score / b.total) - (a.score / a.total));
 
 let selectedUser   = null;
 let activeFilter   = 'all';
+let filterBtns     = [];
+
+// ── Render filter buttons ────────────────────────────────
+function renderFilterButtons() {
+    filterContainer.innerHTML = '';
+    
+    // Always add 'All Subjects'
+    const allBtn = document.createElement('button');
+    allBtn.className = 'tab-btn active';
+    allBtn.setAttribute('data-filter', 'all');
+    allBtn.textContent = 'All Subjects';
+    filterContainer.appendChild(allBtn);
+    
+    // Get unique subjects from leaderboard
+    const uniqueSubjects = [...new Set(leaderboard.map(e => e.subjectKey || 'ds'))];
+    
+    // Add buttons for each unique subject
+    uniqueSubjects.forEach(subjectKey => {
+        const btn = document.createElement('button');
+        btn.className = 'tab-btn';
+        btn.setAttribute('data-filter', subjectKey);
+        btn.textContent = subjectLabel(subjectKey);
+        filterContainer.appendChild(btn);
+    });
+    
+    // Update filterBtns
+    filterBtns = document.querySelectorAll('[data-filter]');
+    
+    // Re-attach event listeners
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            activeFilter = this.getAttribute('data-filter');
+            analysisSection.classList.remove('show');
+            selectedUser = null;
+            renderLeaderboard();
+        });
+    });
+}
 
 // ── Subject label helper ──────────────────────────────────
 function subjectLabel(key) {
-    const map = { ds: 'Data Structures', cn: 'Computer Networks', os: 'Operating Systems', se: 'Software Engineering', java: 'Java Programming', wt: 'Web Technology', de: 'Digtal Electronics', dbms: 'DBMS', iot: 'Internet of Things', bd: 'Big Data', py: 'Python Programming', ap: 'Android Programming', chem_easy: 'Chemistry — Easy', chem_hard: 'Chemistry — Hard', phy_easy: 'Physics — Easy', phy_hard: 'Physics — Hard' };
+    const map = { ds: 'Data Structures', cn: 'Computer Networks', os: 'Operating Systems', se: 'Software Engineering', java: 'Java Programming', wt: 'Web Technology', de: 'Digtal Electronics', dbms: 'DBMS', iot: 'Internet of Things', bd: 'Big Data', py: 'Python Programming', ap: 'Android Programming', chem_easy: 'Chemistry — Easy', chem_hard: 'Chemistry — Hard', phy_easy: 'Physics — Easy', phy_hard: 'Physics — Hard', math_easy: 'Mathematics — Easy', math_medium: 'Mathematics — Medium', math_hard: 'Mathematics — Hard' };
     return map[key] || key || '—';
 }
 
@@ -137,26 +177,19 @@ analysisTabs.forEach(tab => {
     });
 });
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', function () {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        activeFilter = this.getAttribute('data-filter');
-        analysisSection.classList.remove('show');
-        selectedUser = null;
-        renderLeaderboard();
-    });
-});
-
 // ── Clear data ────────────────────────────────────────────
 document.getElementById('clear-btn').addEventListener('click', () => {
     if (confirm('Clear ALL leaderboard data? This cannot be undone.')) {
         localStorage.removeItem('ecet_leaderboard');
         leaderboard = [];
         analysisSection.classList.remove('show');
+        renderFilterButtons();
         renderLeaderboard();
     }
 });
 
 // ── Init ──────────────────────────────────────────────────
-window.onload = renderLeaderboard;
+window.onload = () => {
+    renderFilterButtons();
+    renderLeaderboard();
+};
